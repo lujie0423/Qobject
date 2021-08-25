@@ -84,22 +84,29 @@ yes_now_time = now_time - oneday
 # print(yes_time)
 
 if now_android.tm_mday == now_time.day == now_ios.tm_mday:
-    print("今日打包成功")
-elif now_android.tm_mday == now_time.day:
-    print("今日ios打包失败")
-elif now_ios.tm_mday == now_time.day:
-    print("今日android打包失败")
+    print("\033[0;31;40m今日打包成功\033[0m")
+
+elif now_android.tm_mday != now_time.day:
+    print("\033[0;31;40m今日android打包失败\033[0m")
+elif now_ios.tm_mday != now_time.day:
+    print("\033[0;31;40m今日ios打包失败\033[0m")
 else:
     print("打包失败")
 
+
+
 if yes_now_android.tm_mday == yes_now_time.day == yes_now_ios.tm_mday:
     print("昨天打包成功")
-elif yes_now_android.tm_mday == yes_now_time.day:
+elif yes_now_android.tm_mday != yes_now_time.day:
     print("昨天ios打包失败")
-elif yes_now_ios.tm_mday == yes_now_time.day:
+elif yes_now_ios.tm_mday != yes_now_time.day:
     print("昨天android打包失败")
 else:
     print("打包失败")
+
+# print(yes_now_android.tm_mday)
+# print(yes_now_time.day)
+# print(yes_now_ios.tm_mday)
 
 #今日
 apk_file = file_android + '/' +  android +'.apk'
