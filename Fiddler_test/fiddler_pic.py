@@ -33,6 +33,7 @@ for i in range(1,10):
 
         response = requests.get(pic,headers=headers)
         with open(create_url + '/' + name,'wb') as f:
+            # 如果想取文本数据可以通过response.text 如果想取图片，文件，则可以通过 response.content
             f.write(response.content)
 
 

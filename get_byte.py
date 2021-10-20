@@ -44,8 +44,8 @@ for i in range(len(day_list)):
 
 file_android = os.path.join(android_path, lists_android[-1])
 file_ios = os.path.join(ios_path, lists_ios[-1])
-# print("今日文件路径:\n%s"%file_android)
-# print("今日文件路径:\n%s"%file_ios)
+print("今日文件路径:\n%s"%file_android)
+print("今日文件路径:\n%s"%file_ios)
 
 yes_file_android = os.path.join(android_path, lists_android[-len_today-1])
 yes_file_ios = os.path.join(ios_path, lists_ios[-len_today-1])
@@ -167,6 +167,7 @@ middle = now
 end = str[-(len_str - 12):]
 all = head + middle + end
 wd['b12'] = all
+#保存修改后字体会变黑，不知道为啥
 wb.save(file_home)  # 保存修改后的excel
 print("修改excel成功")
 
@@ -210,4 +211,6 @@ f.excel_catch_screen(file_home, "TOTAL", "B9:C13", "C:\\Users\jie.lu\\Desktop\\�
 #打开图片看看是否截取成功
 # os.startfile(file_pic1)
 # os.startfile(file_pic2)
+
+
 

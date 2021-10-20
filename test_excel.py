@@ -34,10 +34,15 @@ def excel_catch_screen(filename, sheetname, screen_area, img_name):
     img = ImageGrab.grabclipboard()  # 获取剪贴板的图片数据
     # if not img_name:
     #     img_name = name + ".PNG"
-    img.save(img_name)  # 保存图片
+    img.save(img_name,quality=95)  # 保存图片
     wb.Close(SaveChanges=0)  # 关闭工作薄，不保存
     excel.Quit()  # 退出excel
     pythoncom.CoUninitialize()
+    time.sleep(0.5)
+    #按比例缩小图片大小
+    img = Image.open(img_name)
+    img = img.resize((round(img.size[0]*0.6), round(img.size[1]*0.6)))
+    img.save(img_name)
 
 
 # if __name__ == '__main__':

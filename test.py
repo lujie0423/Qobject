@@ -1,6 +1,15 @@
-import xlrd
+from win32com.client.gencache import EnsureDispatch
+from win32com.client import constants
+from bs4 import BeautifulSoup
+import requests
 
-wb= xlrd.open_workbook('C:\\Users\\jie.lu\\Desktop\\SMOKE_版本.xlsx')
-sheet1 = wb.sheet_by_index(0)  #这里的excel文档内只有一个表格，0代表第一个
+yourExcelFile = 'C:\\Users\\jie.lu\\Desktop\\SMOKE_版本.xlsx'
+newFileName = 'C:\\Users\\jie.lu\\Desktop\\test_111.htm'
 
-rows = sheet1.nrows
+xl = EnsureDispatch('Excel.Application')
+wb = xl.Workbooks.Open(yourExcelFile)
+wb.SaveAs(newFileName, constants.xlHtml)
+xl.Workbooks.Close()
+xl.Quit()
+del xl
+

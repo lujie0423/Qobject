@@ -8,8 +8,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
 from email import encoders
 from email.mime.base import MIMEBase
-
-
+from PIL import Image
+import sys
+from 面向对象 import html_text
 
 
 today = datetime.datetime.now()
@@ -23,8 +24,10 @@ now = now_month + "月" + now_day + "号"
 mailserver = "smtp.exmail.qq.com"  #邮箱服务器地址
 username_send = 'jie.lu@garena.cn'  #邮箱用户名
 password = 'BMvgJX7gbut44Xz4'   #邮箱密码：需要使用授权码
-username_recv = ['aru_all@garena.cn']  #收件人，多个收件人用逗号隔开
-username_cc = ['guol@garena.cn']  #抄送人，多个收件人用逗号隔开
+# username_recv = ['aru_all@garena.cn']  #收件人，多个收件人用逗号隔开
+username_recv = ['jie.lu@garena.cn']  #收件人，多个收件人用逗号隔开
+# username_cc = ['guol@garena.cn']  #抄送人，多个收件人用逗号隔开
+username_cc = ['jie.lu@garena.cn']  #抄送人，多个收件人用逗号隔开
 reciver = username_recv + username_cc
 
 # 创建一个带附件的邮件实例（内容）
@@ -74,6 +77,7 @@ with open('C:\\Users\\jie.lu\\Desktop\\每日报告\\2.png', 'rb') as fp:
     msg.attach(mine)
 
 
+
 # fp = open('C:\\Users\\jie.lu\\Desktop\\每日报告\\2.png', 'rb')
 # msgImage1 = MIMEImage(fp.read())
 # fp.close()
@@ -107,6 +111,7 @@ with  open(file_new, 'rb') as fp:
 # image_2["Content-Disposition"] = 'attachment; filename="2.png"'
 # msg.attach(image_1)
 # msg.attach(image_2)
+
 
 
 # mail = MIMEText(mail_msg,'html','utf-8')
